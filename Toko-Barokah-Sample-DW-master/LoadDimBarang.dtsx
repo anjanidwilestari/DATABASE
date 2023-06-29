@@ -1,0 +1,545 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/20/2022 3:29:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-ORPB6G8V"
+  DTS:CreatorName="LAPTOP-ORPB6G8V\ayian"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{86EF4434-1AEF-4BF6-8614-53845A4895F9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.168"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="LoadDimBarang"
+  DTS:VersionGUID="{39E138D1-0928-477C-BF8C-59D2B14BA084}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AAF99AF9-0B77-437C-B879-B4785B21E207}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-ORPB6G8V\ANJANIDWILESTARI;Initial Catalog=TokoBarokahDW;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B9EA774B-72BF-4893-9025-CA9D972DAB71}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\DATABASE\Toko-Barokah-Sample-DW-master\barang_toko_barokah.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Kode"
+              DTS:DTSID="{071C6E86-3A14-4CE8-A6F5-4C1D590A55FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="KodeSupplier"
+              DTS:DTSID="{5D94F056-5131-4584-B49B-E07B8DD908FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nama"
+              DTS:DTSID="{6D584141-8CD7-4AE9-9793-286334A84123}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Harga"
+              DTS:DTSID="{B103CBEB-D2A8-426D-BF8E-E95D6A1187A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Satuan"
+              DTS:DTSID="{282AB5E7-0E04-4275-8A63-CD2378811433}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Barcode"
+              DTS:DTSID="{34D012A9-D355-4FB3-B532-686860CA510D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{A8426CB7-18A0-45C9-882D-B248E78F95DE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - DimBarang"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - DimBarang"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimBarang]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - DimBarang.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].Columns[Kode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Kode"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[AltKey]"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Kode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].Columns[Nama]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nama"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Nama]"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Nama]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].Columns[Harga]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Harga"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Harga]"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Harga]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].Columns[Satuan]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Satuan"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Satuan]"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Satuan]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].Columns[Barcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Barcode"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Barcode]"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Barcode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[AltKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AltKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Nama]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nama" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Harga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Harga" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Satuan]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Satuan" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input].ExternalColumns[Barcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Barcode" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - DimBarang.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - DimBarang.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - DimBarang.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - DimBarang.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - barang_toko_barokah_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Kode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Kode]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Kode]"
+                      name="Kode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[KodeSupplier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[KodeSupplier]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[KodeSupplier]"
+                      name="KodeSupplier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Nama]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Nama]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Nama]"
+                      name="Nama"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Harga]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Harga]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Harga]"
+                      name="Harga"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Satuan]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Satuan]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Satuan]"
+                      name="Satuan"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Barcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Barcode]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].Columns[Barcode]"
+                      name="Barcode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Kode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Kode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[KodeSupplier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="KodeSupplier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Nama]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nama" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Harga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Harga" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Satuan]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Satuan" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output].ExternalColumns[Barcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Barcode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - DimBarang.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - barang_toko_barokah_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>
